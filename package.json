@@ -1,0 +1,18 @@
+{
+  "name": "bj88-static-clone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sync": "node scripts/sync-routes.js",
+    "dev": "npm run sync && serve site -l 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cheerio": "^1.2.0",
+    "serve": "^14.2.6"
+  }
+}

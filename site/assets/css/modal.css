@@ -1,0 +1,11 @@
+[data-modal-view][hidden] {
+  display: none;
+}
+
+body.is-modal-open {
+  overflow: hidden;
+}
+
+body.is-menu-open {
+  overflow: hidden;
+}
