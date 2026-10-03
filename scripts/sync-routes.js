@@ -11,7 +11,7 @@ const variants = {
 
 Object.entries(variants).forEach(([route, meta]) => {
   const html = source
-    .replace('<body data-route="home">', `<body data-route="${route}">`)
+    .replace(/<body[^>]*data-route="home"[^>]*>/, `<body data-route="${route}">`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${meta.title}</title>`)
   fs.mkdirSync(path.join(root, route), { recursive: true })
   fs.writeFileSync(path.join(root, route, 'index.html'), html)

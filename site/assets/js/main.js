@@ -5,6 +5,7 @@ import { initializeSidebar } from './sidebar.js'
 import { initializeMenu } from './menu.js'
 import { createRouter, getRoute } from './router.js'
 import { openModal, closeModal, onRequestClose } from './modal.js'
+import { initializeLoaderAndNotice } from './notice-loader.js'
 
 function render (route) {
   if (route === 'login' || route === 'register') {
@@ -19,10 +20,12 @@ const router = createRouter(render)
 // Close (X, backdrop, Esc) returns to home without reload
 onRequestClose(() => router.go('home'))
 
-render(getRoute())
+const initialRoute = getRoute()
+render(initialRoute)
 
 initializeCarousels()
 initializeMarquees()
 initializeFormControls()
 initializeSidebar()
 initializeMenu()
+initializeLoaderAndNotice(initialRoute)

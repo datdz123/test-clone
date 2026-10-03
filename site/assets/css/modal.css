@@ -9,3 +9,234 @@ body.is-modal-open {
 body.is-menu-open {
   overflow: hidden;
 }
+
+/* ==========================================================================
+   BJ88 INITIAL PAGE LOADER SCREEN
+   ========================================================================== */
+.bj-loader-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #14151a;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s ease;
+  pointer-events: all;
+}
+
+.bj-loader-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.bj-loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bj-loader-logo {
+  width: 180px;
+  max-width: 55vw;
+  height: auto;
+  margin-bottom: 24px;
+  animation: bjLogoPulse 1.8s infinite ease-in-out;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.6));
+}
+
+.bj-loader-bar-wrap {
+  width: 190px;
+  max-width: 60vw;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bj-loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #ff9fa2 0%, #ffd259 50%, #ff5959 100%);
+  border-radius: 99px;
+  animation: bjLoaderFill 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.bj-loader-text {
+  margin-top: 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@keyframes bjLogoPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes bjLoaderFill {
+  0% {
+    width: 0%;
+  }
+  40% {
+    width: 60%;
+  }
+  80% {
+    width: 90%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   BJ88 OFFICIAL ANNOUNCEMENT POPUP MODAL (1:1 Screenshot Match)
+   ========================================================================== */
+.bj-notice-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999990;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.bj-notice-wrapper.open {
+  display: flex !important;
+}
+
+.bj-notice-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: bjFadeIn 0.25s ease-out;
+}
+
+.bj-notice-dialog {
+  position: relative;
+  width: 480px;
+  max-width: 92vw;
+  background: #1c1d1f;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+  overflow: hidden;
+  z-index: 10;
+  animation: bjPopUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  box-sizing: border-box;
+}
+
+.bj-notice-header {
+  background: #18191b;
+  padding: 14px 44px 14px 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.bj-notice-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.2px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.bj-notice-close {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 6px;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bj-notice-close:hover {
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.bj-notice-body {
+  padding: 20px 22px 24px;
+  background: #1c1d1f;
+  box-sizing: border-box;
+}
+
+.bj-notice-body p {
+  margin: 0;
+  color: #dcdcdc;
+  font-size: 13.5px;
+  line-height: 1.68;
+  text-align: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+@keyframes bjFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bjPopUp {
+  from { opacity: 0; transform: scale(0.92) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .bj-notice-dialog {
+    max-width: 94vw;
+  }
+  .bj-notice-title {
+    font-size: 12.5px;
+  }
+  .bj-notice-body p {
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+}
